@@ -5,6 +5,11 @@ from users.enums import UserRole
 
 
 class UserYaMDb(AbstractUser):
+    email = models.EmailField(verbose_name='Электронная почта', unique=True)
+    first_name = models.CharField(verbose_name='Имя', max_length=200)
+    last_name = models.CharField(verbose_name='Фамилия', max_length=200)
+    username = models.CharField(verbose_name='Имя пользователя', unique=True, max_length=200)
+    date_joined = models.DateTimeField(verbose_name='Дата регистрации', auto_now_add=True)
     email = models.EmailField(verbose_name='Электронная почта', unique=True, max_length=200)
     username = models.CharField(verbose_name='Имя пользователя', unique=True, max_length=200)
     first_name = models.CharField(verbose_name='Имя', max_length=100)
